@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>busy loading</title>
+
+	<link href="/static/common/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="/static/common/app.min.css" rel="stylesheet" type="text/css" />
+
+
+    <script type="text/javascript" src="/static/common/jquery.min.js"></script>
+	<script type="text/javascript" src="/static/common/bootstrap.min.js"></script> 
+	<script type="text/javascript" src="/static/common/app.min.js"></script> 
+    
+</head>
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<form role="form">
+				<div style="margin-bottom: 3rem; text-align:center;margin-top: 3rem">					
+					<button type="button" class="btn btn-info btn-fullscreen"  style="width:80%" >loading</button>
+				</div>
+			</form>
+		</div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+
+
+/* function loading() {
+	$.busyLoadFull("show");
+} */
+
+$(function(){
+
+	$.busyLoadSetup({ animation: "slide", background: "rgba(255, 152, 0, 0.86)" });
+	//$.busyLoadSetup({ animation: "slide"});
+
+    $('.btn-fullscreen').click(function() {
+        $.busyLoadFull('show',{ text: "LOADING ..."
+        });
+        $("body>.busy-load-container").click(function() {
+            $.busyLoadFull('hide');
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>
